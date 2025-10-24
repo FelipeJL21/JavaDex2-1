@@ -1,4 +1,4 @@
-package com.mycompany.javadex;
+package javadex;
 
 import javafx.application.Application;
 import javafx.scene.Scene;

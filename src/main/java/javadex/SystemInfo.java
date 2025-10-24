@@ -1,4 +1,4 @@
-package com.mycompany.javadex;
+package javadex;
 
 public class SystemInfo {
 
