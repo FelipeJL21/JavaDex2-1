@@ -1,9 +1,9 @@
 classes\Pokemon.class
 classes\main.class
 classes\PokemonLocal.class
+javadex\App.class
 module-info.class
 classes\Tipo.class
-com\mycompany\javadex\App.class
+javadex\SystemInfo.class
 database\database.class
 classes\InterfaceGrafica.class
-com\mycompany\javadex\SystemInfo.class
