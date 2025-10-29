@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class database {
     //Model Pokemon
-    private List<Pokemon> pokemons;
+    public List<Pokemon> pokemons;
     private List<Tipo> tipos;
     
     
