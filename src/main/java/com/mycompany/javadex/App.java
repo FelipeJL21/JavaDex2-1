@@ -11,49 +11,49 @@ import classes.Tipo;
 import database.database;
 import java.util.List;
 import java.util.ArrayList;
+import java.image.*;
 
 
 /**
  * JavaFX App
  */
 public class App extends Application {
-     
-    private Label label2;
-    // private List<Pokemon> pokemons;
+     // Variaveis Globais
+    private Label poke;
     private Pokemon pokemonEscolhido;
     
     @Override
     public void start(Stage stage) {
-        var javaVersion = SystemInfo.javaVersion();
-        var javafxVersion = SystemInfo.javafxVersion();
-        
         database bd = new database();
         bd.inicialize();
-        // pokemons = bd.pokemons;
-        label2 = new Label("Hello World");
         
-        Button pikachu = new Button(bd.buscaPokemon(25).getNome());
-        pikachu.setOnAction(e -> atualizacao());
-        Label raichu = new Label(bd.buscaPokemon(26).getNome());
-       
-        StackPane pilha = new StackPane(pikachu);
-        ScrollPane tela = new ScrollPane();
-        
+        poke = new Label("Hello World");
+
         VBox listaDePokemons = new VBox();
-        for(int i=1; i<=151; i++){         
-            listaDePokemons.getChildren().add(new Button(bd.buscaPokemon(i).getNome()));
+        for(int i=1; i<=151; i++){
+            Pokemon laco_repeticao = bd.buscaPokemon(i);
+            Button botao = new Button (laco_repeticao.getNome());
+            botao.setOnAction(e->atualizacao(laco_repeticao));
+            listaDePokemons.getChildren().add(botao);
         }
-        tela.setContent(listaDePokemons);
-        //vertical.getChildren().add(horizontal);
+        ScrollPane scroll_lista = new ScrollPane();
+        scroll_lista.setContent(listaDePokemons);
         
-        //Pikachu Raichu (Horizontal)
-        var scene = new Scene(tela,  640, 480);
+        Image obj = new Image(getClass().getResourceAsStream("/image/poke_nada.png"));
+        ImageView iv = new ImageView(obj);
+        iv.setFitWidth(200); //Largura para 200px
+        iv.setPReserveRatio(true); // Manter Dimensões
+        
+        HBox tela_principal = new HBox();
+        tela_principal.getChildren().add(scroll_lista);
+        tela_principal.getChildren().add(poke);
+        tela_principal.getChildren().add(iv);
+        var scene = new Scene(tela_principal,  640, 480);
         stage.setScene(scene);
         stage.show();
     }
-    
-    public void atualizacao(){
-        label2 = new Label("Atualizei");
+    public void atualizacao(Pokemon p){
+        poke.setText(p.getNome());
     }
 
     public static void main(String[] args) {
