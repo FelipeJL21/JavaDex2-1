@@ -71,7 +71,7 @@ public class App extends Application {
     public void atualizacao(Pokemon p){
         poke.setText(p.getNome());
         tipos.setText(p.getTipoFraquezas());
-        evolucao.setText(p.getEvoluiPara().getNome());
+        evolucao.setText(p.getEvoluiPara() == null ? "":p.getEvoluiPara().getNome());
     }
 
     public static void main(String[] args) {
