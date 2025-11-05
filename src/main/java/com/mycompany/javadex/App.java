@@ -1,4 +1,4 @@
-package javadex;
+package com.mycompany.javadex;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -11,7 +11,7 @@ import classes.Tipo;
 import database.database;
 import java.util.List;
 import java.util.ArrayList;
-import java.image.*;
+import javafx.scene.image.*;
 
 
 /**
@@ -42,7 +42,7 @@ public class App extends Application {
         Image obj = new Image(getClass().getResourceAsStream("/image/poke_nada.png"));
         ImageView iv = new ImageView(obj);
         iv.setFitWidth(200); //Largura para 200px
-        iv.setPReserveRatio(true); // Manter Dimensões
+        iv.setPreserveRatio(true); // Manter Dimensões
         
         HBox tela_principal = new HBox();
         tela_principal.getChildren().add(scroll_lista);

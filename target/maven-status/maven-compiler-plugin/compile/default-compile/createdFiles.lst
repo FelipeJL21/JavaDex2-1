@@ -1,0 +1,9 @@
+com\mycompany\javadex\App.class
+classes\PokemonLocal.class
+classes\Tipo.class
+classes\InterfaceGrafica.class
+classes\Pokemon.class
+javadex\SystemInfo.class
+module-info.class
+classes\main.class
+database\database.class
